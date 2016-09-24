@@ -119,7 +119,7 @@ public class MyBatisTest {
 ```
 
 
-### 참고 : ApplicationContext과 전략패턴([참조사이트](http://hmkcode.com/spring-configuration-xml-annotation-java/))
+### 참고 : ApplicationContext과 전략패턴 ([참조사이트](http://hmkcode.com/spring-configuration-xml-annotation-java/))
 * ApplicationContext란 디자인패턴 중 전략-컨텍스트-클라이언트로 구성되는 전략패턴에서 클라이언트와 비슷한 기능(객체 생성, 객체 간의 관계 설정)을 함.
 * 전략 - 무기 (칼, 총, 활, …), 컨텍스트 - 군인, 클라이언트 - 군인이 장착할 무기를 교체해주는 제 3자
 * 그러나 클라이언트와는 다르게 ApplicationContext는 POJO(Plain Old Java Object) 및 xml파일을 이용하여 객체 간의 관계를 쉽게 나타낼 수 있음.
