@@ -61,7 +61,7 @@ insert into user values('id010', '010', '오길동');
 ```
 
 * DataSource 테스트
-```java
+```
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 public class DataSourceTest {
@@ -90,7 +90,7 @@ public class DataSourceTest {
 ```
 
 * SqlSessionFactory, SqlSession 테스트
-```java
+```
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 public class MyBatisTest {
