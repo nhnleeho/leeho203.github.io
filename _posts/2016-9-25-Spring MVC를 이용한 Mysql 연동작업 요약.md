@@ -53,10 +53,10 @@ insert into user values('id010', '010', '오길동');
 * DataSource 객체 설정
 ```xml
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-<property name="url" value="jdbc:mysql://127.0.0.1:3306/nhndnt"></property>
-<property name="username" value="root"></property>
-<property name="password" value="1234"></property>
+	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	<property name="url" value="jdbc:mysql://127.0.0.1:3306/nhndnt"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="1234"></property>
 </bean>
 ```
 
