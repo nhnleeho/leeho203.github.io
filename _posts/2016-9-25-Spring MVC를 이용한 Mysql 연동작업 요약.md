@@ -51,7 +51,7 @@ insert into user values('id010', '010', '오길동');
 
 ### 6. JDBC 연결 설정하기
 * DataSource 객체 설정
-```
+```html
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	<property name="url" value="jdbc:mysql://127.0.0.1:3306/nhndnt"></property>
@@ -61,7 +61,7 @@ insert into user values('id010', '010', '오길동');
 ```
 
 * DataSource 테스트
-```
+```java
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 public class DataSourceTest {
@@ -83,14 +83,14 @@ public class DataSourceTest {
 
 ### 7. mybatis 연결 설정하기 (http://www.mybatis.org/mybatis-3/ko/ 사이트 참조)
 * SqlSessionFactory 객체 설정
-```
+```html
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource"></property>
 </bean>
 ```
 
 * SqlSessionFactory, SqlSession 테스트
-```
+```java
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 public class MyBatisTest {
