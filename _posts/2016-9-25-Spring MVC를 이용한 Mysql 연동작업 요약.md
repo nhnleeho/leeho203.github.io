@@ -52,7 +52,7 @@ insert into user values('id010', '010', '오길동');
 ### 6. JDBC 연결 설정하기
 * DataSource 객체 설정
 
-```
+```xml
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	<property name="url" value="jdbc:mysql://127.0.0.1:3306/nhndnt"></property>
@@ -63,7 +63,7 @@ insert into user values('id010', '010', '오길동');
 
 * DataSource 테스트
 
-```
+```java
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 public class DataSourceTest {
@@ -86,7 +86,7 @@ public class DataSourceTest {
 ### 7. mybatis 연결 설정하기 (http://www.mybatis.org/mybatis-3/ko/ 사이트 참조)
 * SqlSessionFactory 객체 설정
 
-```
+```xml
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource"></property>
 </bean>
@@ -94,7 +94,7 @@ public class DataSourceTest {
 
 * SqlSessionFactory, SqlSession 테스트
 
-```
+```java
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 public class MyBatisTest {
@@ -116,4 +116,24 @@ public class MyBatisTest {
 		}
 	}
 }
+```
+
+
+### ApplicationContext과 전략패턴(http://hmkcode.com/spring-configuration-xml-annotation-java/ 참조)
+* ApplicationContext란 디자인패턴 중 전략-컨텍스트-클라이언트로 구성되는 전략패턴에서 클라이언트와 비슷한 기능(객체 생성, 객체 간의 관계 설정)을 함.
+* 전략 - 무기 (칼, 총, 활, …), 컨텍스트 - 군인, 클라이언트 - 군인이 장착할 무기를 교체해주는 제 3자
+* 그러나 클라이언트와는 다르게 ApplicationContext는 POJO(Plain Old Java Object) 및 xml파일을 이용하여 객체 간의 관계를 쉽게 나타낼 수 있음.
+
+* POJO로 작성된 ApplicationContext에서 Bean 객체를 얻어올 때 코드예시
+
+```java
+Application conext = new AnnotationConfigApplicationContext(Config.class);
+SomObject so = context.getBean(someObject.class);
+```
+
+* XML로 작성된 ApplicationContext에서 Bean 객체를 얻어올 때 코드예시
+
+```java
+ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+SomeObject so = context.getBean("someObject");
 ```
